@@ -1,0 +1,25 @@
+--lua
+--Cast fields to relative locations in all directions
+--using just a single button.
+--
+--Author: thetweak
+--
+--How to use:
+--1) bind macros to cast field to relative locations to
+--   corresponding buttons
+--2) bind a hot key in UOPilot to execute this script
+--3) in game, point to the direction where you want to
+--   cast the field and click UOPilot hotkey
+
+local x, y = mouse_pos()
+local angle = tonumber(point_direction(450, 350, x, y))
+
+if angle > 298 and angle < 333 then send("F5")     --N
+elseif angle > 333 or angle < 27 then send("F4")   --NE
+elseif angle >= 27 and angle < 63 then send("F6")  --E
+elseif angle >= 63 and angle < 115 then send("F7") --SE
+elseif angle >= 115 and angle < 152 then send("F8") --S
+elseif angle >= 152 and angle < 206 then send("F1") --SW
+elseif angle >= 206 and angle < 244 then send("F2") --W
+elseif angle >= 244 and angle < 298 then send("F3") --NW
+end
